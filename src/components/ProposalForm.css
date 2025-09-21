@@ -1,0 +1,69 @@
+/* src/components/ProposalForm.css */
+
+.proposal-container {
+  border: 2px solid var(--eva-primary-green);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(0, 255, 0, 0.05); /* 非常淡的绿色背景 */
+}
+
+.header-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.header-title p {
+  color: var(--eva-secondary-orange);
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--eva-primary-green);
+  color: var(--eva-text-color);
+  padding: 0.75rem;
+  font-family: inherit; /* 继承body的字体 */
+  font-size: 1rem;
+  caret-color: var(--eva-alert-red); /* 光标颜色 */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--eva-secondary-orange);
+  border-color: var(--eva-secondary-orange);
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--eva-secondary-orange);
+  border: none;
+  color: var(--eva-bg-color);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: var(--eva-primary-green);
+  color: var(--eva-bg-color);
+  box-shadow: 0 0 15px var(--eva-primary-green);
+}

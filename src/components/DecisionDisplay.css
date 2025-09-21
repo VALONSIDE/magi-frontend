@@ -1,0 +1,175 @@
+/* src/components/DecisionDisplay.css */
+
+.decision-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 2px solid var(--eva-primary-green);
+  padding: 1rem;
+}
+
+/* 顶部信息区 */
+.info-grid {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--eva-primary-green);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-right {
+  text-align: right;
+}
+
+.final-decision-box {
+  border: 2px solid var(--eva-alert-red);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  color: var(--eva-alert-red);
+}
+
+.final-decision-box.approved {
+  border-color: var(--eva-primary-green);
+  color: var(--eva-primary-green);
+}
+
+.final-decision-box.rejected {
+  border-color: var(--eva-alert-red);
+  color: var(--eva-alert-red);
+}
+
+
+/* MAGI 核心决策区 */
+.magi-core {
+  position: relative;
+  height: 400px; /* 给一个固定高度以容纳模型块 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.magi-model {
+  position: absolute;
+  width: 150px;
+  height: 120px;
+  border: 2px solid var(--eva-primary-green);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2; /* <-- 添加这一行 */
+}
+
+.magi-center-text {
+  font-size: 4rem;
+  font-weight: bold;
+  opacity: 0.5;
+  z-index: 2; /* <-- 添加这一行 */
+}
+
+.model-name {
+  font-size: 1.2rem;
+}
+
+.model-number {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* --- 模型块定位 (最终修复，使用特定类名) --- */
+.model-balthasar {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%); /* 关键：确保顶部矩形框完美水平居中 */
+}
+
+.model-casper {
+  bottom: 60px;
+  left: 20%;
+}
+
+.model-melchior {
+  bottom: 60px;
+  right: 20%;
+}
+
+/* --- 模型块状态样式 --- */
+.magi-model.pending {
+  background-color: var(--eva-primary-green);
+  color: var(--eva-bg-color);
+  /* 关键：应用闪烁动画 */
+  animation: blink 0.125s infinite; /* 0.125s 对应每秒8次 */
+}
+
+.magi-model.approved {
+  background-color: var(--eva-primary-green);
+  color: var(--eva-bg-color);
+}
+
+.magi-model.rejected {
+  background-color: var(--eva-alert-red);
+  color: var(--eva-bg-color);
+}
+
+/* 闪烁动画定义 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+/* 底部分析报告区 */
+.analysis-section {
+  border-top: 1px solid var(--eva-primary-green);
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.analysis-report {
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  padding: 1rem;
+}
+
+.analysis-report h3 {
+  color: var(--eva-secondary-orange);
+  margin-bottom: 0.5rem;
+}
+.analysis-report p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-transform: none; /* 分析内容不需要全大写 */
+}
+
+/* --- SVG 连接线样式 --- */
+
+.connector-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index 确保线条在矩形框的后面，但在中心文字的前面 */
+  z-index: 1; 
+}
+
+.connector-lines line {
+  stroke: var(--eva-primary-green); /* 线条颜色 */
+  stroke-width: 4; /* 线条粗细 */
+  opacity: 0.5; /* 让线条不那么刺眼 */
+}
+
+/* 
+ * 确保矩形框和中心文字在最上层，
+ * 以便它们能覆盖住线条的端点。
+ */
+.magi-model {
+  /* ... (保留所有原有样式) ... */
+  z-index: 2;
+}
+
+.magi-center-text {
+  /* ... (保留所有原有样式) ... */
+  z-index: 2;
+}

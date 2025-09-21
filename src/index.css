@@ -1,0 +1,52 @@
+/* --- 全局样式重置与EVA风格基础 --- */
+
+/* 使用 border-box 模型，让尺寸计算更直观 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 定义EVA风格的颜色变量 */
+:root {
+  --eva-bg-color: #000000;         /* 背景色：纯黑 */
+  --eva-primary-green: #00ff00;    /* 主色调：荧光绿 */
+  --eva-secondary-orange: #ff9900; /* 辅助色：橙色 */
+  --eva-alert-red: #ff0000;       /* 警告/否定色：红色 */
+  --eva-text-color: var(--eva-primary-green); /* 默认文字颜色 */
+}
+
+/* 全局字体和背景设置 */
+body {
+  background-color: var(--eva-bg-color);
+  color: var(--eva-text-color);
+  font-family: 'Source Code Pro', 'Fira Code', monospace; /* 使用等宽字体 */
+  min-height: 100vh;
+  text-transform: uppercase; /* 所有文字默认大写 */
+}
+
+/* 为整个应用容器添加一些基本样式 */
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.reset-button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.8rem 1.5rem;
+  background-color: transparent;
+  border: 2px solid var(--eva-secondary-orange);
+  color: var(--eva-secondary-orange);
+  font-family: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.reset-button:hover {
+  background-color: var(--eva-secondary-orange);
+  color: var(--eva-bg-color);
+}
