@@ -12,7 +12,7 @@ function ProposalForm({ onSubmit }) {
     // 【已修改】检查内容是否为空，如果为空，则使用标题作为提交内容
     const submissionContent = content.trim() === '' ? title : content;
 
-      // 增加一个判断，确保至少标题或内容有一个被填写
+    // 增加一个判断，确保至少标题或内容有一个被填写
     if (submissionContent.trim() === '') {
       alert('請至少填寫標題或內容！'); // 提示用户
       return; // 阻止提交
