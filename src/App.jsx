@@ -13,7 +13,7 @@ function App() {
     setDecisionData(null); // 清空旧数据
 
     try {
-      const response = await fetch('http://localhost:3001/decide', {
+      const response = await fetch('/decide', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: proposalContent }),
