@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/decide",
-      "destination": "https://magi-system-api.onrender.com/decide"
+      "destination": "https://magi-system-production.up.railway.app/decide"
     }
   ]
 }
